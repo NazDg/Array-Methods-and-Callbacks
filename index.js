@@ -15,6 +15,24 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 
 //(e) Winner of 2014 world cup final */
 
+let cup_2014 = fifaData.filter(function(e) {
+    return e.Year == 2014 && e.Stage == "Final" ;
+},0);
+// (a)
+console.log(cup_2014[0]["Home Team Name"]);
+// (b)
+console.log(cup_2014[0]["Away Team Name"]);
+// (c)
+console.log(cup_2014[0]["Away Team Goals"]);
+// (e)
+function getWinner(array) {
+    if (array[0]["Home Team Goals"] > array[0]["Away Team Goals"]) {
+        return array[0]["Home Team Name"];
+    } else {
+        return array[0]["Away Team Name"];
+    }
+};
+console.log(getWinner(cup_2014));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
@@ -24,9 +42,15 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
-}
+function getFinals(array) {
+
+    let finals = array.filter(function(e) {
+        return e.Stage == "Final" ;
+    });
+    return finals;
+
+};
+console.log(getFinals(fifaData));
 
 
 
